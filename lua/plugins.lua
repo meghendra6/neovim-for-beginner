@@ -16,6 +16,7 @@ function M.setup()
         return require("packer.util").float { border = "rounded" }
       end,
     },
+    max_jobs = 10,
   }
 
   -- Check if packer.nvim is installed
@@ -590,7 +591,7 @@ function M.setup()
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
       config = function()
         require("config.treesitter").setup()
       end,
