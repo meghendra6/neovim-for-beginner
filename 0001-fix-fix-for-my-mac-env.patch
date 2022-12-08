@@ -1,0 +1,33 @@
+From 626712c2189148dbf66bd682857714e39f20fb69 Mon Sep 17 00:00:00 2001
+From: Scott Lee <soulindarkness@gmail.com>
+Date: Wed, 16 Nov 2022 00:12:35 +0900
+Subject: [PATCH] fix: fix for my mac env
+
+---
+ lua/plugins.lua | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lua/plugins.lua b/lua/plugins.lua
+index 9833fe3..4903ba3 100644
+--- a/lua/plugins.lua
++++ b/lua/plugins.lua
+@@ -16,6 +16,7 @@ function M.setup()
+         return require("packer.util").float { border = "rounded" }
+       end,
+     },
++    max_jobs = 10,
+   }
+ 
+   -- Check if packer.nvim is installed
+@@ -590,7 +591,7 @@ function M.setup()
+     -- Treesitter
+     use {
+       "nvim-treesitter/nvim-treesitter",
+-      run = ":TSUpdate",
++      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+       config = function()
+         require("config.treesitter").setup()
+       end,
+-- 
+2.37.0 (Apple Git-136)
+
