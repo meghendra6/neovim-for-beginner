@@ -58,10 +58,7 @@ function M.setup()
     -- literate programming
     use {
       "~/workspace/alpha2phi/lp.nvim",
-      -- config = function()
-      --   require("lp").setup()
-      -- end,
-      disable = true,
+      disable = false,
     }
 
     -- Notification
@@ -169,6 +166,15 @@ function M.setup()
       "goolord/alpha-nvim",
       config = function()
         require("config.alpha").setup()
+      end,
+    }
+    use {
+      "folke/drop.nvim",
+      event = "VimEnter",
+      config = function()
+        math.randomseed(os.time())
+        local theme = ({ "stars", "snow", "xmas" })[math.random(1, 3)]
+        require("drop").setup { theme = theme }
       end,
     }
 
@@ -688,6 +694,7 @@ function M.setup()
         require("config.nvimtree").setup()
       end,
     }
+    use { "elihunter173/dirbuf.nvim", cmd = { "Dirbuf" } }
 
     -- Buffer line
     use {
@@ -801,6 +808,7 @@ function M.setup()
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
+        { "jayp0521/mason-null-ls.nvim" },
         "folke/neodev.nvim",
         "RRethy/vim-illuminate",
         "jose-elias-alvarez/null-ls.nvim",
