@@ -675,7 +675,7 @@ function M.setup()
         { "nvim-telescope/telescope-smart-history.nvim" },
         {
           "alpha2phi/telescope-arecibo.nvim",
-          rocks = { "openssl", "lua-http-parser" },
+          rocks = { "openssl", env = {OPENSSL_DIR = "/opt/homebrew/Caskroom/miniforge/base/pkgs/openssl-1.1.1q-ha287fd2_0"}, "lua-http-parser" },
         },
         { "nvim-telescope/telescope-media-files.nvim" },
         { "dhruvmanila/telescope-bookmarks.nvim" },
