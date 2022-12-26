@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/bash
 
 NVIM_BEGINNER=~/.config/nvim-beginner
 export NVIM_BEGINNER
