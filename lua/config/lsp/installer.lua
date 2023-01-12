@@ -40,6 +40,8 @@ function M.setup(servers, server_options)
     ["jdtls"] = function()
       -- print "jdtls is handled by nvim-jdtls"
     end,
+    ["clangd"] = function()
+    end,
     ["sumneko_lua"] = function()
       local opts = vim.tbl_deep_extend("force", server_options, servers["sumneko_lua"] or {})
       require("neodev").setup {}
