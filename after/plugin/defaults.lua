@@ -93,7 +93,3 @@ if g.neovide then
   g.neovide_transparency = 0.9
   g.neovide_fullscreen = true
 end
-
--- Load filetype.lua
-g.do_filetype_lua = 1
-g.did_load_filetypes = 0
